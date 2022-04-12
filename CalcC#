@@ -1,0 +1,84 @@
+using System;
+namespace Calc
+{
+    class Program
+    {
+        static void Main()
+        {
+            Ask();
+        }
+        static void Ask()
+        {
+            int x, y, res = 0;char d;
+            x = Convert.ToInt32(Console.ReadLine());
+            d = Convert.ToChar(Console.ReadLine());
+            if(d == null)
+            {
+                Console.WriteLine("Введите действие !");
+            }
+            y = Convert.ToInt32(Console.ReadLine());
+            if (d == '+')
+            {
+                Plus(x, y);
+                res = Plus(x, y);
+            }
+            else if (d == '-')
+            {
+                Mice(x, y);
+                res = Mice(x, y);
+            }
+            else if(d == '*')
+            {
+                X(x, y);
+                res =X(x, y);
+            }
+            else if(d == '/')
+            {
+                Del(x, y);
+                res=Del(x, y);
+            }
+            Write(res,y,d);
+        }
+        static int Plus(int x,int y)
+        {
+            return x + y;
+        }
+        static int Mice(int x, int y)
+        {
+            return x - y;
+        }
+        static int X(int x, int y)
+        {
+            return x * y;
+        }
+        static int Del(int x, int y)
+        {
+            if (y == 0)
+            {
+                return -999999990;
+            }
+            else
+            {
+                return x / y;
+            }
+        }
+        static void Write(int res , int y , char d)
+        {
+            for(int i = 0; i < 30; i++)
+            {
+                Console.Write(d);
+            }
+            if(y == 0 && d == '/')
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("Division by 0 is not possible");
+            }
+            else
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("Answer is:");
+                Console.WriteLine(res);
+            }
+        }
+    }
+}
